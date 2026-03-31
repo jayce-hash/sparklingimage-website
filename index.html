@@ -9,111 +9,86 @@
         :root {
             --primary: #005f9e;
             --primary-light: #0084d1;
-            --accent: #ffef00; /* Adjusted to match their bright yellow */
+            --accent: #ffef00; 
             --dark: #1e293b;
             --light: #f8fafc;
             --white: #ffffff;
             --gray: #64748b;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; scroll-behavior: smooth; }
         body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
         a { text-decoration: none; color: inherit; }
 
-        /* TOP BAR - CARD BALANCES */
+        /* TOP BAR */
         .top-bar {
-            background-color: var(--dark);
-            color: var(--white);
-            font-size: 0.85rem;
-            padding: 0.5rem 2rem;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            gap: 1.5rem;
+            background-color: var(--dark); color: var(--white); font-size: 0.85rem; padding: 0.5rem 2rem;
+            display: flex; justify-content: flex-end; align-items: center; gap: 1.5rem; flex-wrap: wrap;
         }
         .top-bar span { font-weight: bold; color: var(--accent); }
         .top-bar a:hover { text-decoration: underline; color: var(--accent); }
 
-        /* NAVIGATION */
-        header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        /* HEADER & NAV */
+        header { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 65px; width: auto; filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.2)); }
         
-        .logo img {
-            height: 65px;
-            width: auto;
-            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.2));
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-            font-size: 0.95rem;
-        }
+        .nav-links { display: flex; gap: 1.5rem; align-items: center; font-size: 0.95rem; }
         .nav-links a { font-weight: 600; text-transform: uppercase; transition: color 0.3s; }
         .nav-links a:hover { color: var(--primary); }
 
+        /* BUTTONS */
         .btn {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s;
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
+            background-color: var(--primary); color: var(--white); padding: 0.75rem 1.5rem; border-radius: 5px;
+            font-weight: bold; transition: background 0.3s; border: none; cursor: pointer; text-transform: uppercase; display: inline-block;
         }
         .btn:hover { background-color: var(--primary-light); color: var(--white); }
         .btn-accent { background-color: var(--accent); color: var(--dark); }
         .btn-accent:hover { background-color: #e6d800; }
 
-        /* HERO SECTION */
+        /* HERO */
         .hero {
             background: linear-gradient(rgba(0, 95, 158, 0.85), rgba(0, 95, 158, 0.85)), url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
-            color: var(--white);
-            text-align: center;
-            padding: 7rem 2rem;
+            color: var(--white); text-align: center; padding: 7rem 2rem;
         }
         .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
         .hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem; }
 
-        /* GENERIC SECTION STYLES */
+        /* SHARED SECTION STYLES */
         .section-padding { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
         .section-title { font-size: 2.2rem; color: var(--primary); margin-bottom: 1rem; text-align: center; text-transform: uppercase;}
         .section-subtitle { color: var(--gray); margin-bottom: 3rem; text-align: center; font-size: 1.1rem; }
-        
-        /* LOCATIONS & SERVICES */
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+
+        /* SERVICES CARDS */
         .card { background: var(--white); padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; border-bottom: 4px solid var(--primary); }
         .card h3 { color: var(--primary); margin: 1rem 0; font-size: 1.5rem; }
 
-        /* UNLIMITED WASH CLUB BANNER */
+        /* MAP & LOCATIONS */
+        .map-container { width: 100%; height: 400px; background-color: #e2e8f0; border-radius: 8px; overflow: hidden; margin-top: 2rem; border: 2px solid var(--primary-light); }
+        .location-info { text-align: center; margin-top: 1rem; font-size: 1.1rem; }
+
+        /* UNLIMITED WASH */
         .unlimited-banner { background-color: var(--accent); color: var(--dark); padding: 4rem 2rem; text-align: center; }
         .unlimited-banner h2 { font-size: 2.5rem; margin-bottom: 1rem; text-transform: uppercase; }
 
-        /* REVIEWS / COMMUNITY */
+        /* REVIEWS */
         .reviews { background-color: var(--primary); color: var(--white); padding: 5rem 2rem; }
         .reviews .section-title, .reviews .section-subtitle { color: var(--white); }
         .review-card { background: rgba(255, 255, 255, 0.1); padding: 1.5rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); }
         .stars { color: var(--accent); margin-bottom: 0.5rem; font-size: 1.2rem; }
 
-        /* FAQ SECTION */
-        .faq-box { background: var(--white); padding: 1.5rem; margin-bottom: 1rem; border-radius: 8px; border-left: 4px solid var(--accent); }
+        /* ABOUT & FAQ */
+        .flex-split { display: flex; gap: 4rem; flex-wrap: wrap; }
+        .flex-split > div { flex: 1; min-width: 300px; }
+        .faq-box { background: var(--white); padding: 1.5rem; margin-bottom: 1rem; border-radius: 8px; border-left: 4px solid var(--accent); box-shadow: 0 2px 4px rgba(0,0,0,0.05);}
         .faq-box h4 { margin-bottom: 0.5rem; color: var(--primary); }
+
+        /* CONTACT FORM */
+        .contact-section { background-color: var(--white); }
+        .contact-form { max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 1rem; border: 1px solid #cbd5e1; border-radius: 5px; font-family: inherit; }
+        .contact-form textarea { resize: vertical; min-height: 120px; }
 
         /* FOOTER */
         footer { background-color: var(--dark); color: var(--white); padding: 4rem 2rem 2rem; font-size: 0.9rem; }
@@ -122,15 +97,19 @@
         .footer-col ul { list-style: none; }
         .footer-col ul li { margin-bottom: 0.5rem; }
         .footer-col ul li a:hover { color: var(--accent); }
+        .social-icons { display: flex; gap: 1rem; margin-top: 1rem; font-size: 1.5rem; }
+        .social-icons a:hover { color: var(--accent); }
+        
         .legal-text { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #334155; color: #94a3b8; font-size: 0.8rem; }
 
         /* MOBILE MENU */
         .mobile-menu-btn { display: none; font-size: 1.5rem; cursor: pointer; background: none; border: none; }
-        @media (max-width: 900px) {
+        @media (max-width: 950px) {
             .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background: var(--white); padding: 1rem 0; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
             .nav-links.active { display: flex; }
             .mobile-menu-btn { display: block; }
-            .top-bar { justify-content: center; flex-wrap: wrap; }
+            .top-bar { justify-content: center; }
+            .hero h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -151,13 +130,13 @@
             
             <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
             <nav class="nav-links" id="navLinks">
-                <a href="#home">Home</a>
-                <a href="#locations">Locations & Services</a>
-                <a href="#unlimited">Unlimited Wash</a>
-                <a href="#reviews">Community</a>
-                <a href="#faq">FAQ</a>
-                <a href="#about">About On-Site</a>
-                <a href="#contact">Contact</a>
+                <a href="#home" onclick="toggleMenu()">Home</a>
+                <a href="#services" onclick="toggleMenu()">Services</a>
+                <a href="#locations" onclick="toggleMenu()">Locations</a>
+                <a href="#unlimited" onclick="toggleMenu()">Unlimited Wash</a>
+                <a href="#community" onclick="toggleMenu()">Community</a>
+                <a href="#about-faq" onclick="toggleMenu()">About On-Site & FAQ</a>
+                <a href="#contact" onclick="toggleMenu()">Contact</a>
             </nav>
         </div>
     </header>
@@ -165,36 +144,49 @@
     <section class="hero" id="home">
         <h1>Feel Good In A Clean Car!®</h1>
         <p>Expert car washing, auto detailing, and express oil changes across multiple locations.</p>
-        <a href="#locations" class="btn btn-accent">Find A Location</a>
+        <a href="#locations" class="btn btn-accent">Find A Location Near You</a>
     </section>
 
-    <section class="section-padding" id="locations">
-        <h2 class="section-title">Locations & Services</h2>
-        <p class="section-subtitle">Find premium services tailored to keep your vehicle looking and running its best.</p>
+    <section class="section-padding" id="services">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">Premium services tailored to keep your vehicle looking and running its best.</p>
         
         <div class="grid-3">
             <div class="card">
                 <h3>Car Wash & Detailing</h3>
-                <p>From soft-cloth exterior washes to full interior detailing. Our teams (shoutout to Chaplin & Luciana!) handle everything from basic cleans to scratch removal.</p>
+                <p>From soft-cloth exterior washes to full interior detailing. Our expert teams handle everything from basic cleans to scratch and paint removal.</p>
             </div>
             <div class="card">
                 <h3>Express Oil Change</h3>
                 <p>Fast, friendly, and reliable oil changes. Get back on the road safely without the long wait times.</p>
             </div>
             <div class="card">
-                <h3>Find a Location</h3>
-                <p>With locations serving North Texas (including Colleyville) and beyond, a Sparkling Image car wash is always nearby.</p>
+                <h3>Gift & Wash Cards</h3>
+                <p>The perfect gift for any driver. Stop by our lobby or purchase online to keep your loved ones riding clean.</p>
             </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="locations" style="background-color: var(--white);">
+        <h2 class="section-title">Find A Sparkling Image</h2>
+        <p class="section-subtitle">Serving North Texas, including our top-rated Colleyville location.</p>
+        
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107380.00755914652!2d-97.23450915!3d32.8802996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e78c87ab95e87%3A0xc3c94fdd3a04e545!2sColleyville%2C%20TX!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="location-info">
+            <strong>Colleyville Area & Surrounding Locations</strong><br>
+            Open Daily | Call us: (555) 123-4567
         </div>
     </section>
 
     <section class="unlimited-banner" id="unlimited">
         <h2>Sparkling Shine Unlimited Wash Club</h2>
         <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto 2rem;">Wash your car every day for one low monthly fee. No long-term contracts. Cancel anytime.</p>
-        <a href="#" class="btn" style="background-color: var(--dark); color: white;">Join The Club Today</a>
+        <a href="#contact" class="btn" style="background-color: var(--dark); color: white;">Join The Club Today</a>
     </section>
 
-    <section class="reviews" id="reviews">
+    <section class="reviews" id="community">
         <h2 class="section-title">Community Feedback</h2>
         <p class="section-subtitle">See why locals call us the best car wash in North Texas.</p>
         
@@ -217,48 +209,72 @@
         </div>
     </section>
 
-    <section class="section-padding" id="faq" style="display: flex; gap: 4rem; flex-wrap: wrap;">
-        <div style="flex: 1; min-width: 300px;" id="about">
-            <h2 class="section-title" style="text-align: left;">About On-Site Services</h2>
-            <p>Sparkling Image isn't just a destination; we come to you. Our On-Site fleet washing services ensure that local businesses and dealerships can maintain pristine vehicles without the hassle of transport.</p>
-            <br>
-            <a href="#" class="btn">Learn About Fleet Washes</a>
-        </div>
-        
-        <div style="flex: 1; min-width: 300px;">
-            <h2 class="section-title" style="text-align: left;">Frequently Asked Questions</h2>
-            <div class="faq-box">
-                <h4>How does the Unlimited Wash Club work?</h4>
-                <p>Your credit card is billed monthly, and an RFID tag is placed on your windshield for quick, daily access to our wash tunnels.</p>
+    <section class="section-padding" id="about-faq">
+        <div class="flex-split">
+            <div id="about">
+                <h2 class="section-title" style="text-align: left;">About On-Site Services</h2>
+                <p>Sparkling Image isn't just a destination; we come to you. Our On-Site fleet washing services ensure that local businesses, dealerships, and corporate fleets can maintain pristine vehicles without the hassle of transport.</p>
+                <br>
+                <a href="#contact" class="btn">Inquire About Fleet Washes</a>
             </div>
-            <div class="faq-box">
-                <h4>Do you offer Gift Cards?</h4>
-                <p>Yes! Wash Cards, Oil Change Cards, and standard Gift Cards can be purchased at any location (just ask Rebecca!).</p>
+            
+            <div id="faq">
+                <h2 class="section-title" style="text-align: left;">Frequently Asked Questions</h2>
+                <div class="faq-box">
+                    <h4>How does the Unlimited Wash Club work?</h4>
+                    <p>Your credit card is billed monthly, and an RFID tag is placed on your windshield for quick, daily access to our wash tunnels.</p>
+                </div>
+                <div class="faq-box">
+                    <h4>Do you offer Gift Cards?</h4>
+                    <p>Yes! Wash Cards, Oil Change Cards, and standard Gift Cards can be purchased at any location or checked via the links at the top of our site.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact">
+    <section class="section-padding contact-section" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Have a question about our services, memberships, or fleet washing? Send us a message.</p>
+        
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('This is a mockup form!');">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email Address" required>
+            <select style="width: 100%; padding: 1rem; border: 1px solid #cbd5e1; border-radius: 5px; font-family: inherit; color: var(--gray);">
+                <option value="">What are you contacting us about?</option>
+                <option value="unlimited">Unlimited Wash Club</option>
+                <option value="fleet">On-Site / Fleet Washing</option>
+                <option value="feedback">General Feedback</option>
+            </select>
+            <textarea placeholder="Your Message..." required></textarea>
+            <button type="submit" class="btn btn-accent" style="width: 100%;">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
         <div class="footer-content">
             <div class="footer-col">
                 <img src="SparklingImage.png" alt="Sparkling Image Car Wash" style="height: 50px; margin-bottom: 1rem; filter: grayscale(100%) brightness(200%);">
                 <p>Feel Good In A Clean Car!®</p>
+                <div class="social-icons">
+                    <a href="#">📘</a> <a href="#">📷</a> <a href="#">🐦</a> </div>
             </div>
             <div class="footer-col">
                 <h4>Site Menu</h4>
                 <ul>
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#locations">Locations & Services</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#locations">Locations</a></li>
                     <li><a href="#unlimited">Unlimited Wash</a></li>
-                    <li><a href="#reviews">Community</a></li>
+                    <li><a href="#community">Community</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h4>Helpful Links</h4>
                 <ul>
-                    <li><a href="#faq">FAQ</a></li>
-                    <li><a href="#about">About On-Site</a></li>
+                    <li><a href="#about-faq">FAQ</a></li>
+                    <li><a href="#about-faq">About On-Site</a></li>
                     <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#">Check Card Balances</a></li>
                 </ul>
             </div>
         </div>
