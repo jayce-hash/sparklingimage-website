@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sparkling Image Car Wash | Feel Good In A Clean Car</title>
+    <style>
+        /* CSS VARIABLES */
+        :root {
+            --primary: #005f9e;
+            --primary-light: #0084d1;
+            --accent: #ffb703;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --gray: #64748b;
+        }
+
+        /* RESET & BASE STYLES */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVIGATION */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-light);
+        }
+
+        .btn {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            color: var(--white);
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+
+        .btn-accent:hover {
+            background-color: #ffaa00;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(0, 95, 158, 0.8), rgba(0, 95, 158, 0.8)), url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: var(--white);
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+
+        /* SERVICES SECTION */
+        .services {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: var(--primary-light);
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        /* REVIEWS SECTION */
+        .reviews {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 5rem 2rem;
+        }
+
+        .reviews .section-title, .reviews .section-subtitle {
+            color: var(--white);
+        }
+
+        .review-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stars {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h4 {
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #cbd5e1;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* MOBILE MENU */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--dark);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                text-align: center;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                ✨ Sparkling<span>Image</span>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <nav class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#locations">Locations</a>
+                <a href="#contact" class="btn">Join Unlimited Club</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <h1>Feel Good In A Clean Car!®</h1>
+        <p>Premium detailing, express washes, and oil changes in the Colleyville area and beyond. Voted one of the best car washes in North Texas.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="#services" class="btn btn-accent">View Services</a>
+            <a href="#reviews" class="btn" style="background: rgba(255,255,255,0.2); border: 2px solid white;">See Our Reviews</a>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2 class="section-title">Everything Your Car Needs</h2>
+        <p class="section-subtitle">From quick washes to deep interior detailing, our expert team has you covered.</p>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">🚗</div>
+                <h3>Unlimited Wash Club</h3>
+                <p>Keep your car shining all month long for one low price. Fast, convenient, and cost-effective!</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🧽</div>
+                <h3>Full Detailing</h3>
+                <p>Need scratches removed or paint spills cleaned? Our experts like Chaplin and Luciana handle it with care.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🛢️</div>
+                <h3>Express Oil Change</h3>
+                <p>Quick, professional oil changes to keep your engine running as smoothly as your car looks.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💳</div>
+                <h3>Wash & Gift Cards</h3>
+                <p>The perfect gift for friends and family. Speak to our friendly lobby staff to grab a Wash Card today!</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+        <div style="text-align: center; max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <p class="section-subtitle">Don't just take our word for it—see why North Texas loves Sparkling Image.</p>
+            
+            <div class="review-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Gale and Rebecca are amazing!! They were so so so helpful!!! The lady that cleaned/detailed my car was also amazing!!!! Luciana was her name :)"</p>
+                    <p class="reviewer-name">- Mega</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"I want to give a special thank you shout out to Frank their manager and Chaplin for taking care of my Porsche car today. They noticed there’s a scratch and decided to remove it for me for free after my car wash."</p>
+                    <p class="reviewer-name">- Sherry Lundsberg</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"They always have the best service here. Everyone is happy and has a good attitude. Rebecca inside was very helpful. The lobby is kept super clean... If you are looking for a place to get a car wash membership near Colleyville this is the place. It’s worth the drive."</p>
+                    <p class="reviewer-name">- Jed</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"Best car wash in North Texas. Prices are reasonable and there are no harder workers than this place. They are always working so hard and not cutting any corners. Love this place!"</p>
+                    <p class="reviewer-name">- Scott Doyle</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"I would 100% recommend this car wash to anyone. Context: I spilled oil based paint in my car. Thank you Rebecca for your over the phone skills. Thank you to Byron for helping me find the right price. And a big thank you to Chaplin for removing all the paint from my car."</p>
+                    <p class="reviewer-name">- Matthew Garzon</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">"The team here is amazing! Everyone is so kind and patient, and they really take the time to walk you through all the different options without ever making you feel rushed. And most importantly—my car is ALWAYS cleaned..."</p>
+                    <p class="reviewer-name">- Alyshah Aziz</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="locations">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="color: white; margin-bottom: 1rem;">
+                    ✨ Sparkling<span style="color: var(--accent);">Image</span>
+                </div>
+                <p style="color: #cbd5e1; margin-bottom: 1rem;">Feel Good In A Clean Car!®</p>
+                <p style="color: #cbd5e1;">Providing top-tier detailing, oil changes, and exterior washes for the Colleyville community and beyond.</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Our Services</a></li>
+                    <li><a href="#">Unlimited Wash Club</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li>📞 (555) 123-4567</li>
+                    <li>📧 hello@sparklingimage.com</li>
+                    <li>📍 Near Colleyville, North Texas</li>
+                    <li style="margin-top: 1rem;"><a href="#" class="btn btn-accent" style="padding: 0.5rem 1rem; display: inline-block;">Get Directions</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Wash Depot / Sparkling Image Car Wash. All Rights Reserved. (Mockup generated for redesign proposal)</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
